@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dado.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="calculo">
+        <br><br>
+        <label class="la">número de jugadores</label>
+        <input class="cja1" type="number" id="nuj">
+        <br><br>
+        <button class="boton" id="btn">JUGAR</button>
+        <br><br>
+        <div id="resul"></div>
+        <br><br>
+        <div id="ganador"></div>
+    </section>
+    <script>
+        var bo=document.getElementById("btn");
+        //al hacer click se ejecutsra la funcion dado//
+        bo.addEventListener("click",dado);
+        //nombramos a nuestra funcion dado//
+        function dado() 
+        {
+            const jugador = [];
+            //n1 almacena el valor recivido en el id"nuj"
+            var n1=document.getElementById("nuj").value
+        
+            for (var i=1; i<= n1; i++){
+            var nda= Math.floor(Math.random()*6)+1;
+            jugador.push(nda);
+            }
+        var r= (jugador.indexOf(Math.max(...jugador)))+1
+        document.getElementById("resul").innerHTML = jugador
+        document.getElementById("ganador").innerHTML = "El jugador que gana es: "+r
+        }
+    </script>
+</body>
+</html>
